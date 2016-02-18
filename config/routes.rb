@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users
+  root 'home#index'
+  get 'persons/profile', as: 'user_root'
+  match '/persons/add_table', to: 'persons#add_table', via: 'post'
+  match '/persons/remove_table', to: 'persons#remove_table', via: 'delete'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

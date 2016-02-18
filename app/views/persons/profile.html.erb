@@ -1,0 +1,88 @@
+<%= render 'layouts/signed_in' %>
+<div class="row">
+  <div class="col-md-4">
+    <h2>My tables</h2>
+    <div class="row">
+      <% @user_tables.each do |user_table| %>
+          <div class="col-md-6">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-xs-3">
+                    <i class="fa fa-comments fa-5x"></i>
+                  </div>
+                  <div class="col-xs-9 text-right">
+                    <div class="huge"><%= user_table.name %></div>
+                  </div>
+                </div>
+              </div>
+              <%= link_to persons_remove_table_path(table_id: user_table.id),method: :delete, data: { confirm: "Are you sure?" } do %>
+                <div class="panel-footer">
+                  <span class="pull-left"> Left game </span>
+                  <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                  <div class="clearfix"></div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h2>Available tables</h2>
+    <div class="row">
+      <% @available_tables.each do |user_table| %>
+          <div class="col-md-6">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-xs-3">
+                    <i class="fa fa-comments fa-5x"></i>
+                  </div>
+                  <div class="col-xs-9 text-right">
+                    <div class="huge"><%= user_table.name %></div>
+                  </div>
+                </div>
+              </div>
+              <%= link_to persons_add_table_path(table_id: user_table.id), method: :post  do %>
+                <div class="panel-footer">
+                  <span class="pull-left"> Join game </span>
+                  <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                  <div class="clearfix"></div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h2>Not available tables</h2>
+    <div class="row">
+      <% @not_available_tables.each do |user_table| %>
+          <div class="col-md-6">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-xs-3">
+                    <i class="fa fa-comments fa-5x"></i>
+                  </div>
+                  <div class="col-xs-9 text-right">
+                    <div class="huge"><%= user_table.name %></div>
+                  </div>
+                </div>
+              </div>
+              <a href="#">
+                <div class="panel-footer">
+                  <span class="pull-left"> -----  </span>
+                  <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                  <div class="clearfix"></div>
+                </div>
+              </a>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<!-- /.row -->
