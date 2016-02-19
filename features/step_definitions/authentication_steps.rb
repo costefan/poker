@@ -1,3 +1,11 @@
+When /^the user visits profile page$/ do
+  visit user_root_path
+end
+
+Then /^they should see sign in form$/ do
+  expect(page).to have_selector('form#new_user')
+end
+
 Given /^a user visits the signin page$/ do
   visit new_user_session_path
 end
