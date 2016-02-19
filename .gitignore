@@ -17,4 +17,4 @@ doc/
 
 # Ignore bundler config.
 /.bundle
-
+Gemfile.lock
